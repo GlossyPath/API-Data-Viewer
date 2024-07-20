@@ -7,6 +7,11 @@ $city = "Valencia";
 $url = "http://api.openweathermap.org/data/2.5/weather?q={$city}&appid={$apiKey}&units=metric";
 
 $ch = curl_init($url);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+curl_close($ch); //cerramos curl
+
 ?>
 
 <!DOCTYPE html>
@@ -35,14 +40,17 @@ $ch = curl_init($url);
     <?= $city ?>
 </h1>
 
+<h2>
+    Buscar el tiempo en la ciudad deseada
+</h2>
 <div class="formulario">
-    <form action="index.php" method="get">
-        <p>Ciudad
-            <input type="text" name="Ciudad" size="40">
+    <form action="index.php" method="get" >
+        <p>Ciudad:
+            <input type="text" name="Ciudad" size="40" required>
         </p>
         <p>
             <input type="submit" value="Enviar">
-            <input type = "reset" value="Borra">
+            <input type = "reset" value="Borrar">
         </p>
     </form>
 </div>
