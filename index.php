@@ -6,7 +6,7 @@ $city = "Valencia";
 
 $url = "http://api.openweathermap.org/data/2.5/weather?q={$city}&appid={$apiKey}&units=metric";
 
-$ch
+$ch = curl_init($url);
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,11 @@ $ch
     <style>
 
         :root {
-            background-color: #B4E380;
+            background-color: #F6FB7A;
+        }
+
+        body{
+            color: #73BBA3;
         }
 
     </style>
@@ -30,6 +34,18 @@ $ch
 <h1>
     <?= $city ?>
 </h1>
+
+<div class="formulario">
+    <form action="index.php" method="get">
+        <p>Ciudad
+            <input type="text" name="Ciudad" size="40">
+        </p>
+        <p>
+            <input type="submit" value="Enviar">
+            <input type = "reset" value="Borra">
+        </p>
+    </form>
+</div>
 
 
 </body>
