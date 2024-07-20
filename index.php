@@ -16,6 +16,7 @@ if($response === false) {
     $error = curl_error($ch);
     echo "cURL error: $error";
 } else {
+    // echo '<pre>' . htmlspecialchars($response) . '</pre>'; //para imprimir el json en la pagina
     $data = json_decode($response, true);
 }
 
@@ -34,32 +35,56 @@ curl_close($ch);
     <style>
 
         :root {
-            background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);;
+            background-color: #EEEEEE;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
         }
 
         body{
-            color: #FF0000;
+            color: #201E43;
             font-weight: 900;
             font-size: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main{
+            flex:1;
         }
 
         h1{
+            margin:0;
             text-align: center;
             text-transform: uppercase;
+            background-color: #508C9B;
+        }
 
+        .resultado{
+
+        }
+
+        footer p{
+            margin: 0;
+            text-align: center;
+            border-top: 3px solid #ddd;
+            background-color: #508C9B;
         }
 
     </style>
 </head>
 
-<body>
 
+<body>
+        <main>
 <h1>
-    Consulta el Clima en Tu Ciudad
+    Consulta el Clima
 </h1>
 
 <h2>
-    Buscar el tiempo en la ciudad deseada
+    Introduce el nombre de la ciudad que quieres buscar
 </h2>
 
 <div class="formulario">
@@ -74,12 +99,25 @@ curl_close($ch);
     </form>
 </div>
 
-<?php if (isset($data) && $data['cod'] === 200): ?>
-    <h2>Clima en <?= htmlspecialchars($city) ?></h2>
-    <p>La temperatura es de <?= $data['main']['temp'] ?>°C con <?= $data['weather'][0]['description'] ?>.</p>
-<?php elseif (isset($data['cod']) && $data['cod'] != 200): ?>
-    <p>Error al obtener el clima: <?= htmlspecialchars($data['message']) ?>.</p>
-<?php endif; ?>
+<div class="resultado">
+    <?php if (isset($data) && $data['cod'] === 200): ?>
+        <h2>Clima en <?= htmlspecialchars($city) ?> es de:</h2>
+        <p>La temperatura es de <?= $data['main']['temp'] ?>°C con <?= $data['weather'][0]['description'] ?>.</p>
+        <p>La temperaura mínima es de <?= $data["main"]["temp_min"] ?>°C</p>
+        <p>La temperaura máxima es de <?= $data["main"]["temp_max"] ?>°C</p>
+        <p>La sensación térmica es de <?=$data["main"]["feels_like"] ?>°C</p>
+        <p>Velocidad del viento es de <?= $data["wind"]["speed"] ?> km/h </p>
+        <p>Porcentaje de humedad es de <?= $data["main"]["humidity"] ?> % </p>
+    <?php elseif (isset($data['cod']) && $data['cod'] != 200): ?>
+        <p>Error al obtener el clima: <?= htmlspecialchars($data['message']) ?>.</p>
+    <?php endif; ?>
+</div>
+        </main>
+<footer>
+    <p>
+        Desarrollado por GlossyPath
+    </p>
+</footer>
 
 </body>
 </html>
