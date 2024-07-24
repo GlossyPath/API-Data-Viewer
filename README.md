@@ -8,7 +8,12 @@ API Data Viewer es una aplicación básica que se conecta a una API, obtiene dat
 - Obtención y visualización de datos
 - Interfaz de usuario sencilla y fácil de usar
 
-## Instalación
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/APIDataViewer.git
+# API Data Viewer
+
+##Description
+API Data Viewer is a basic application that connects to an API, retrieves data, and displays it in a structured manner.
+
+## Features
+- Connection to an external API
+- Data retrieval and visualization
+- Simple and user-friendly interface
