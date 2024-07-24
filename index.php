@@ -75,7 +75,7 @@ curl_close($ch);
             text-transform: uppercase;
             background-color:#508C9B;
             text-align: center;
-            padding: 3px;
+            padding-top: 6px;
         }
 
         body{
