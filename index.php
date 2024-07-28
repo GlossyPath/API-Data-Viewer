@@ -15,8 +15,8 @@ $response = curl_exec($ch);
 if($response === false) {
     $error = curl_error($ch);
     echo "cURL error: $error";
+
 } else {
-    // echo '<pre>' . htmlspecialchars($response) . '</pre>'; //para imprimir el json en la pagina
     $data = json_decode($response, true);
 }
 
@@ -128,12 +128,14 @@ curl_close($ch);
         <div class="resultado">
             <?php if (isset($data) && $data['cod'] === 200): ?>
                 <h3>Clima en <?= htmlspecialchars($city) ?> es de</h3>
-                <p>La temperatura es de <?= $data['main']['temp'] ?>°C con <?= $data['weather'][0]['description'] ?>.</p>
-                <p>La temperaura mínima es de <?= $data["main"]["temp_min"] ?>°C.</p>
-                <p>La temperaura máxima es de <?= $data["main"]["temp_max"] ?>°C.</p>
-                <p>La sensación térmica es de <?=$data["main"]["feels_like"] ?>°C.</p>
-                <p>Velocidad del viento es de <?= $data["wind"]["speed"] ?> km/h. </p>
-                <p>Porcentaje de humedad es de <?= $data["main"]["humidity"] ?> %.</p>
+                <ul>
+                    <li>La temperatura es de <?= $data['main']['temp'] ?>°C con <?= $data['weather'][0]['description'] ?>.</li>
+                    <li>La temperaura mínima es de <?= $data["main"]["temp_min"] ?>°C.</li>
+                    <li>La temperaura máxima es de <?= $data["main"]["temp_max"] ?>°C.</li>
+                    <li>La sensación térmica es de <?=$data["main"]["feels_like"] ?>°C.</li>
+                    <li>Velocidad del viento es de <?= $data["wind"]["speed"] ?> km/h. </li>
+                    <li>Porcentaje de humedad es de <?= $data["main"]["humidity"] ?> %.</li>
+                </ul>
             <?php elseif (isset($data['cod']) && $data['cod'] != 200): ?>
                 <p>Error al obtener el clima: <?= htmlspecialchars($data['message']) ?>.</p>
             <?php endif; ?>
