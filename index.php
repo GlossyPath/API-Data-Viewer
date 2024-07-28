@@ -45,22 +45,22 @@ curl_close($ch);
         }
 
         @-webkit-keyframes vignette-anim {
-            0%   , 100%{ opacity: 1; }
+            0%   , 100%{ opacity: 2; }
             50% { opacity: 0.7; }
         }
 
         @-moz-keyframes vignette-anim {
-            0%   , 100%{ opacity: 1; }
+            0%   , 100%{ opacity: 2; }
             50% { opacity: 0.7; }
         }
 
         @-o-keyframes vignette-anim {
-            0%   , 100%{ opacity: 1; }
+            0%   , 100%{ opacity: 2; }
             50% { opacity: 0.7; }
         }
 
         @keyframes vignette-anim {
-            0%   , 100%{ opacity: 1; }
+            0%   , 100%{ opacity: 2; }
             50% { opacity: 0.7; }
         }
 
@@ -80,6 +80,7 @@ curl_close($ch);
 
         h1{
             background: linear-gradient(to right, #B6FFFA 0%, #B6FFFA 32%, #B6FFFA 100%);
+            font-size: 4rem;
             margin:0;
             text-align: center;
             text-transform: uppercase;
@@ -92,6 +93,7 @@ curl_close($ch);
 
         h2{
             padding-left: 10px;
+            text-transform: uppercase;
         }
 
         h3{
@@ -99,9 +101,10 @@ curl_close($ch);
             background: linear-gradient(to right, #B6FFFA 0%, #B6FFFA 32%, #B6FFFA 100%);
             text-align: center;
             font-family: "Lemon";
-            padding-top: 6px;
+            padding: 10px;
             color:#80B3FF;
             text-shadow: 5px 5px 7px #201E43;
+            font-size: 3rem;
         }
 
         body{
@@ -110,10 +113,16 @@ curl_close($ch);
             display: flex;
             flex-direction: column;
             font-family: "Cheese";
+            text-transform: uppercase;
         }
 
         .resultado li, .formulario {
+            margin: 0;
             padding-left: 10px;
+        }
+
+        .resultado {
+            margin:0;
         }
 
         footer p{
@@ -127,15 +136,15 @@ curl_close($ch);
 
         .pagCompleta{
             position: absolute;
-    width: 100%;
-    height: 100%;
-    box-shadow: inset 0px 0px 150px 20px #80B3FF;
-    mix-blend-mode: multiply;
-    -webkit-animation: vignette-anim 3s infinite;
-    -moz-animation: vignette-anim 3s infinite;
-    -o-animation: vignette-anim 3s infinite;
-    animation: vignette-anim 3s infinite;
-    z-index: -1;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0px 0px 150px 20px #80B3FF;
+            mix-blend-mode: multiply;
+            -webkit-animation: vignette-anim 3s infinite;
+            -moz-animation: vignette-anim 3s infinite;
+            -o-animation: vignette-anim 3s infinite;
+            animation: vignette-anim 3s infinite;
+            z-index: -1;
         }
 
 
