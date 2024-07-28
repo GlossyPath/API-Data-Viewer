@@ -44,6 +44,26 @@ curl_close($ch);
             src: url(tipografia/Keep\ Cheese.ttf)
         }
 
+        @-webkit-keyframes vignette-anim {
+            0%   , 100%{ opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @-moz-keyframes vignette-anim {
+            0%   , 100%{ opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @-o-keyframes vignette-anim {
+            0%   , 100%{ opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes vignette-anim {
+            0%   , 100%{ opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
         :root {
             background-color: #EEEEEE;
         }
@@ -59,12 +79,15 @@ curl_close($ch);
         }
 
         h1{
+            background: linear-gradient(to right, #B6FFFA 0%, #B6FFFA 32%, #B6FFFA 100%);
             margin:0;
             text-align: center;
             text-transform: uppercase;
             background-color: #508C9B;
             font-family: "Lemon";
             padding: 10px;
+            text-shadow: 5px 5px 7px #201E43;
+            color:#80B3FF;
         }
 
         h2{
@@ -73,20 +96,23 @@ curl_close($ch);
 
         h3{
             text-transform: uppercase;
-            background-color:#508C9B;
+            background: linear-gradient(to right, #B6FFFA 0%, #B6FFFA 32%, #B6FFFA 100%);
             text-align: center;
+            font-family: "Lemon";
             padding-top: 6px;
+            color:#80B3FF;
+            text-shadow: 5px 5px 7px #201E43;
         }
 
         body{
-            color: #201E43;
+            color: #687EFF;
             font-weight: 900;
             display: flex;
             flex-direction: column;
             font-family: "Cheese";
         }
 
-        .resultado p, .formulario {
+        .resultado li, .formulario {
             padding-left: 10px;
         }
 
@@ -94,9 +120,25 @@ curl_close($ch);
             margin: 0;
             text-align: center;
             border-top: 3px solid #ddd;
-            background-color: #508C9B;
+            background: linear-gradient(to right, #B6FFFA 0%, #B6FFFA 32%, #B6FFFA 100%);
             padding: 3px;
+            color: #687EFF;
         }
+
+        .pagCompleta{
+            position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0px 0px 150px 20px #80B3FF;
+    mix-blend-mode: multiply;
+    -webkit-animation: vignette-anim 3s infinite;
+    -moz-animation: vignette-anim 3s infinite;
+    -o-animation: vignette-anim 3s infinite;
+    animation: vignette-anim 3s infinite;
+    z-index: -1;
+        }
+
+
 
     </style>
 </head>
@@ -105,6 +147,8 @@ curl_close($ch);
 <body>
 
     <main>
+    <div class="pagCompleta"></div>
+
         <h1>
             Consulta el Clima
         </h1>
@@ -127,7 +171,7 @@ curl_close($ch);
 
         <div class="resultado">
             <?php if (isset($data) && $data['cod'] === 200): ?>
-                <h3>Clima en <?= htmlspecialchars($city) ?> es de</h3>
+                <h3><?= htmlspecialchars($city) ?></h3>
                 <ul>
                     <li>La temperatura es de <?= $data['main']['temp'] ?>°C con <?= $data['weather'][0]['description'] ?>.</li>
                     <li>La temperaura mínima es de <?= $data["main"]["temp_min"] ?>°C.</li>
