@@ -1,8 +1,8 @@
 <?php
 
-if (isset($_GET['Ciudad']) && !empty($_GET['Ciudad'])) {
+if (isset($_GET['city']) && !empty($_GET['city'])) {
     $apiKey = "ebecefa8d9fbd75c2ff749772e1f82af";
-    $city = htmlspecialchars($_GET['Ciudad']);
+    $city = htmlspecialchars($_GET['city']);
 
 $url = "http://api.openweathermap.org/data/2.5/weather?q={$city}&appid={$apiKey}&units=metric";
 
@@ -169,7 +169,7 @@ curl_close($ch);
         <div class="formulario">
             <form action="index.php" method="get" >
                 <p>Ciudad:
-                    <input type="text" name="Ciudad" size="40" required>
+                    <input type="text" name="city" size="40" required>
                 </p>
                 <p>
                     <input type="submit" value="Enviar">
