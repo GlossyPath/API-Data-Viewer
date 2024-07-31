@@ -105,6 +105,8 @@ curl_close($ch);
             color:#80B3FF;
             text-shadow: 5px 5px 7px #201E43;
             font-size: 3rem;
+            margin:0 80px 0 80px;
+            border-radius:10px;
         }
 
         body{
