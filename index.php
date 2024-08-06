@@ -88,6 +88,7 @@ curl_close($ch);
             padding: 10px;
             text-shadow: 5px 5px 7px #201E43;
             color:#80B3FF;
+            border-bottom: solid 3px black;
         }
 
         h2{
@@ -132,8 +133,9 @@ curl_close($ch);
             text-align: center;
             border-top: 3px solid #ddd;
             background-color: #E0E5B6;
-            padding: 3px;
+            padding: 10px 0px ;
             color: #687EFF;
+            border-top: solid 3px black;
         }
 
         .pagCompleta{
