@@ -65,7 +65,7 @@ curl_close($ch);
         }
 
         :root {
-            background-color: #EEEEEE;
+            background-color: #FAEDCE;
         }
 
         html, body {
@@ -79,12 +79,11 @@ curl_close($ch);
         }
 
         h1{
-            background: linear-gradient(to right, #B6FFFA 0%, #B6FFFA 32%, #B6FFFA 100%);
+            background-color: #E0E5B6;
             font-size: 4rem;
             margin:0;
             text-align: center;
             text-transform: uppercase;
-            background-color: #508C9B;
             font-family: "Lemon";
             padding: 10px;
             text-shadow: 5px 5px 7px #201E43;
@@ -98,15 +97,16 @@ curl_close($ch);
 
         h3{
             text-transform: uppercase;
-            background: linear-gradient(to right, #B6FFFA 0%, #B6FFFA 32%, #B6FFFA 100%);
+            background-color: #E0E5B6;
             text-align: center;
             font-family: "Lemon";
             padding: 10px;
             color:#80B3FF;
             text-shadow: 5px 5px 7px #201E43;
             font-size: 3rem;
-            margin:0 80px 0 80px;
+            margin:0 100px 0 100px;
             border-radius:10px;
+            border: solid 3px black;
         }
 
         body{
@@ -131,7 +131,7 @@ curl_close($ch);
             margin: 0;
             text-align: center;
             border-top: 3px solid #ddd;
-            background: linear-gradient(to right, #B6FFFA 0%, #B6FFFA 32%, #B6FFFA 100%);
+            background-color: #E0E5B6;
             padding: 3px;
             color: #687EFF;
         }
